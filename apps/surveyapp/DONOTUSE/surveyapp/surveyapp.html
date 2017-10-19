@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Survey Form</title>
+        {% load static %}
+                <meta name="description" content="Wish me a good luck with FLASK stuff!">      
+                <link rel="stylesheet" href="{% static 'surveyapp/css/surveyapp.css' %}" media="screen" title="no title"  charset="utf-8"> 
+            </head>
+        <body>
+            <!-- #you need to rename your template folder to templates
+            the same folder just rename it to templates
+            instead of template 
+        sooooooooooo you're going to have to check your form next for any typos between the form and your views.py-->
+                {% block content %}
+            <div id="wrapper">
+            <h1>Dojo Survey</h1></span>
+            <!-- read on to learn about form actions, we'll talk about the method in a later section -->
+                <form action='/result' method='post'>
+                    {% csrf_token %}
+                    <!-- right here, because there is no session['counter'] yet -->
+                    <h3>{{request.session['counter']}}</h3>
+                    Your Name: <input type='text' name="name"><br><br>
+                    Dojo Location: <select name="cities">
+                        <option value="none">None</option>
+                        <option value="cupertino">Cupertino</option>
+                        <option value="oakland">Oakland</option>
+                        <option value="sanfrancisco">San Francisco</option>
+                        <option value="sanjose">San Jose</option>
+                            </select><br><br>
+                    Favorite Language: <select name="language">
+                            <option value="None">None</option>
+                            <option value="asl">American Sign Language</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="french">French</option>
+                            <option value="japanese">Japanese</option>
+                            </select><br><br>
+                    Comment (optional):<br>
+                    <textarea name="comment"></textarea><br><br>
+                    <input type='submit' value='submit'>
+                </form>
+            </div>
+            {% endblock %}
+        </body>
+    </html>

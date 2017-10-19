@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_50.css') }}">
+	<link rel="stylesheet" type="text/css" href="static/css/style_50.css">
+	<script type="text/javascript" src="script.js"></script>
+	<title>Counting</title>
+	</head>
+	<body>
+			<div class="wrapper"> 
+					<h1>{{session['counter']}}</h1> 
+					<form action='/reset' method='post'><button>Reset</button></form>
+
+			</div>
+	</body>
+</html>
